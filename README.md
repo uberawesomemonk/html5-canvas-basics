@@ -14,9 +14,13 @@ Served at: [http://djb-code.github.io/html5-canvas-basics/](http://djb-code.gith
 * Create "Pull Request" against the original repository (upstream)
 
 **To Sink Your Local Branch With Upstream:** 
+
 `git pull https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git BRANCH_NAME`
+
 Which for us is...
+
 `git pull https://github.com/djb-code/html5-canvas-basics.git master`
+
 
 **Developing:**
 * Code files are located in /src (this is where you program)
