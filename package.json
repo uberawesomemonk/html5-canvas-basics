@@ -1,0 +1,32 @@
+{
+  "name": "html5-canvas-basics",
+  "version": "1.0.0",
+  "description": "A basic repo to test and play with canvas fundamentals needed for creating a video game",
+  "main": "index.html",
+  "dependencies": {
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-bundle-assets": "^2.23.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csengineer13/html5-canvas-basics.git"
+  },
+  "keywords": [
+    "html5",
+    "canvas",
+    "game"
+  ],
+  "author": "Danny and Joey Brown",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csengineer13/html5-canvas-basics/issues"
+  },
+  "homepage": "http://djb-code.github.io/html5-canvas-basics/"
+}

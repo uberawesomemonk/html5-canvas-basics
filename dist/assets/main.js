@@ -1,0 +1,2 @@
+$(function(){function t(){l+=1,f+=1}function n(){o.clearRect(0,0,e,a),o.fillStyle="#000",o.fillText("Sup Bro!",l,f)}var e=480,a=320,c=30,i=$("<canvas width='"+e+"' height='"+a+"'></canvas>"),o=i.get(0).getContext("2d");i.appendTo("body"),setInterval(function(){t(),n()},1e3/c);var l=50,f=50});
+//# sourceMappingURL=maps/main.js.map
