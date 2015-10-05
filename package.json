@@ -6,7 +6,11 @@
   "dependencies": {
     "jquery": "^2.1.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-bundle-assets": "^2.23.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
