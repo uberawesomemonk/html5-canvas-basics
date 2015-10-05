@@ -27,6 +27,9 @@ gulp.task('bundle:resources', function() {
 		.pipe(gulp.dest('./dist/assets'));
 });
 
+gulp.task('bundle', ['bundle:resources']);
+
+
 gulp.task('copy', function(){
 	return gulp.src([
 			'./src/*.html',
@@ -34,8 +37,6 @@ gulp.task('copy', function(){
 			'./README.md'])
   		.pipe(gulp.dest('./dist'));
 })
-
-gulp.task('bundle', ['bundle:resources']);
 
 
 // Clean, and then bundle
