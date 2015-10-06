@@ -25,9 +25,6 @@ $(function(){
 
 
 	// Init vars
-	var textX = 50;
-	var textY = 50;
-
 	var player = {
 		color: "#00A",
 		x: 220,
@@ -43,14 +40,44 @@ $(function(){
 
 
 
+	var keys = ["none", "left", "right"];
+	var keydown = "none";
+	
 
+	// When a key is down on our website
+	$(document).keydown(function(e){
+
+		// If the key is the left key...
+		if(e.keyCode == 37){
+			// Set keydown to "left"
+			keydown = keys[1];
+
+		// if the ky is the right key...
+		}else if(e.keyCode == 39){
+			// Set keydown to "right"
+			keydown = keys[2];
+		}
+	});
+
+	// When a key is down on our website..
+	$(document).keyup(function(e){
+		// No keys down
+		keydown = keys[0];
+	});
 
 
 
 	// Update method
 	function update() {
-		textX += 1;
-		textY += 0;
+
+		if (keydown == "left") {
+		 	player.x -= 2;
+		}
+
+		if (keydown == "right") {
+			player.x += 2;
+		}
+
 	}
 
 	// Draw the update
@@ -60,10 +87,6 @@ $(function(){
 
 		// Draw our player
 		player.draw();
-
-		// Redraw
-		canvas.fillStyle = "#000";
-		canvas.fillText("Sup Bro!", textX, textY);
 	}
 
 });
