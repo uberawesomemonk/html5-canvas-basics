@@ -1,2 +1,2 @@
-$(function(){function t(){l+=1,f+=1}function n(){o.clearRect(0,0,e,a),o.fillStyle="#000",o.fillText("Sup Bro!",l,f)}var e=480,a=320,c=30,i=$("<canvas width='"+e+"' height='"+a+"'></canvas>"),o=i.get(0).getContext("2d");i.appendTo("body"),setInterval(function(){t(),n()},1e3/c);var l=50,f=50});
+$(function(){function t(){c+=1,a+=0}function i(){o.clearRect(0,0,e,n),f.draw(),o.fillStyle="#000",o.fillText("Sup Bro!",c,a)}var e=480,n=320,h=30,l=$("<canvas width='"+e+"' height='"+n+"'></canvas>"),o=l.get(0).getContext("2d");l.appendTo("body"),setInterval(function(){t(),i()},1e3/h);var c=50,a=50,f={color:"#00A",x:220,y:270,width:32,height:32,draw:function(){o.fillStyle=this.color,o.fillRect(this.x,this.y,this.width,this.height)}}});
 //# sourceMappingURL=maps/main.js.map
