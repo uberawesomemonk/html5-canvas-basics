@@ -38,3 +38,9 @@ Which for us is...
 ### Tutorials Used
 
 * Starting Point: [No Tears Guide to HTML5 Games](http://www.html5rocks.com/en/tutorials/canvas/notearsgame/) - [Daniel X. Moore](http://strd6.com/)
+
+
+### Contributors
+
+* Joey Brown
+* Danny Brown
