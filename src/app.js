@@ -34,6 +34,16 @@ $(function(){
 		draw: function() {
 			canvas.fillStyle = this.color;
 			canvas.fillRect(this.x, this.y, this.width, this.height);
+		},
+		clamp: function(val, min, max)
+		{
+			if(val < min){
+				val = min;
+			}else if(val > max){
+				val = max;
+			}
+
+			return val;
 		}
 	};
 
@@ -71,14 +81,18 @@ $(function(){
 	function update() {
 
 		if (keydown == "left") {
-		 	player.x -= 2;
+		 	player.x -= 5;
 		}
 
 		if (keydown == "right") {
-			player.x += 2;
+			player.x += 5;
 		}
 
+		// PUT THE CLAMPS ON!!!!!!
+		player.x = player.clamp(player.x, 0, CANVAS_WIDTH - player.width);
+		player.y = player.clamp(player.y, 0, CANVAS_HEIGHT - player.height)
 	}
+
 
 	// Draw the update
 	function draw() {
