@@ -44,19 +44,46 @@ $(function(){
 			}
 
 			return val;
+		},
+		shoot: function() {
+			console.log("Pew pew");
+
+			var bulletPosition = this.midpoint();
+			var newBullet = Bullet({
+					speed: 5,
+					x: bulletPosition.x,
+					y: bulletPosition.y
+				});
+
+			playerBullets.push(newBullet);
+
+			console.log(playerBullets);
+			// :) Well at least adding the key binding was easy...
+		},
+		midpoint: function() {
+			return {
+				x: this.x + this.width/2,
+				y: this.y + this.height/2
+			};
 		}
 	};
 
 
 
-
-	var keys = ["none", "left", "right", "up", "down"];
+	/* KEY MANAGEMENT */
+	var keys = ["none", "left", "right", "up", "down", "space"];
 	var keydown = "none";
 	
 
 	// When a key is down on our website
 	$(document).keydown(function(e){
-		if(e.keyCode == 40){
+		console.log(e.keyCode);
+
+		if(e.keyCode == 32){
+			console.log("SPACE WAS PRESSED!");
+			keydown = keys[5];
+
+		}else if(e.keyCode == 40){
 			keydown = keys[4];
 
 		}else if(e.keyCode == 38){
@@ -82,8 +109,47 @@ $(function(){
 
 
 
+	/* BULLET MANAGEMENT */
+	var playerBullets = [];
+
+	function Bullet(I){
+		I.active = true;
+
+		I.xVelocity = 0;
+		I.yVelocity = -I.speed;
+		I.width = 3;
+		I.height = 3;
+		I.color = "#000";
+
+		I.inBounds = function(){
+			return 	I.x >= 0 && I.x <= CANVAS_WIDTH &&
+					I.y >= 0 && I.y <= CANVAS_HEIGHT;
+		};
+
+		I.draw = function() {
+			canvas.fillStyle = this.color;
+			canvas.fillRect(this.x, this.y, this.width, this.height);
+		};
+
+		I.update = function(){
+			I.x += I.xVelocity;
+			I.y += I.yVelocity;
+
+			I.active = I.active && I.inBounds();
+		};
+
+		return I;
+	}
+
+
+
+
 	// Update method
 	function update() {
+
+		if(keydown == "space"){
+			player.shoot();
+		}
 		if(keydown == "down"){
 			player.y += 5;
 		}
@@ -103,6 +169,16 @@ $(function(){
 		// PUT THE CLAMPS ON!!!!!!
 		player.x = player.clamp(player.x, 0, CANVAS_WIDTH - player.width);
 		player.y = player.clamp(player.y, 0, CANVAS_HEIGHT - player.height)
+	
+		// Updates x, y, and active
+		playerBullets.forEach(function(bullet) {
+			bullet.update();
+		});
+
+		// Removes inactive bullets
+		playerBullets = playerBullets.filter(function(bullet){
+			return bullet.active;
+		});
 	}
 
 
@@ -113,6 +189,12 @@ $(function(){
 
 		// Draw our player
 		player.draw();
+
+		// Draw all of our bullets
+		playerBullets.forEach(function(bullet){
+			//console.log(bullet);
+			bullet.draw();
+		});
 	}
 
 });
