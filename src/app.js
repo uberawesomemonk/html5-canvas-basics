@@ -50,15 +50,20 @@ $(function(){
 
 
 
-	var keys = ["none", "left", "right"];
+	var keys = ["none", "left", "right", "up", "down"];
 	var keydown = "none";
 	
 
 	// When a key is down on our website
 	$(document).keydown(function(e){
+		if(e.keyCode == 40){
+			keydown = keys[4];
+
+		}else if(e.keyCode == 38){
+			keydown = keys[3];
 
 		// If the key is the left key...
-		if(e.keyCode == 37){
+		}else if(e.keyCode == 37){
 			// Set keydown to "left"
 			keydown = keys[1];
 
@@ -79,6 +84,13 @@ $(function(){
 
 	// Update method
 	function update() {
+		if(keydown == "down"){
+			player.y += 5;
+		}
+ 
+		if (keydown == "up"){
+			player.y -= 5;
+		}
 
 		if (keydown == "left") {
 		 	player.x -= 5;
